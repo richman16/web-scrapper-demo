@@ -10,10 +10,10 @@ import requests
 URL = 'http://econpy.pythonanywhere.com/ex/001.html'
 
 if __name__ == '__main__':
-    response = requests.get(URL)
-
-    if response.status_code == 200:
-        content = response.text
+    # Abrir archivo a analizar en modo lectura -r-
+    with open('econpy.html', 'r') as file:
+        # obtener el contenido del archivo
+        content = file.read()
 
         # Expresion regular para encontrar el titulo
         regex = '<div title="buyer-name">(.+?)</div>'
