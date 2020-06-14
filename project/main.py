@@ -15,11 +15,15 @@ if __name__ == '__main__':
 
         soup = BeautifulSoup(content, 'html.parser')
 
-        title = soup.find('title')
-        print(title.name)
-        print(title.text)
-        print(title.getText())
+        # Iteracion para encontrar cada elemento.
+        # Usamos el primer atributo para buscar una etiqueta
+        # Como segundo argumento, colocamos los atributos para ser
+        # puntual en la extracion de los elementos
+        for element in soup.find_all('div', {'title': 'buyer-info'}): # []
 
+            div = element.find('div') # None
+            span = element.find('span')
+            print(div.text, span.getText())
 
 
 # if __name__ == '__main__':
